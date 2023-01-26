@@ -1,0 +1,33 @@
+<%# LibGuide Viewport: 848x750 %>
+<!doctype html>
+<html data-theme="light" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <title><%= @title %></title>
+  </head>
+
+  <body>
+    <main class="container">
+      <hgroup>
+        <h1><a href="/" class="contrast">Frequently Asked Questions</a></h1>
+        <p>Arthur W. Diamond Law Library</p>
+      </hgroup>
+
+      <article>
+        <form action="/" method="get">
+          <input name="query" type="search" placeholder="What can we help you find?" value="<%= @query %>" required>
+          <button type="submit">Search</button>
+        </form>
+
+        <%== yield %>
+
+        <footer>
+          <p>See all the FAQs <a href="/list">here</a>.</p>
+          <p>Can't find your question here? Email us at <strong>referencedesk@law.columbia.edu</strong>.</p>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

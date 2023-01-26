@@ -1,0 +1,24 @@
+<% if @query %>
+  <% if @matches.empty? %>
+    <p>Sorry, no matches were found.</p>
+  <% else %>
+    <h2>Results for '<%= @query %>'</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @matches.each do |match| %>
+          <tr>
+            <td><%== match[:question] %></td>
+            <td><%== match[:answer] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <ul>
+  <% end %>
+<% end %>

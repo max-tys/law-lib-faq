@@ -1,0 +1,35 @@
+<div class="subheading">
+  <div>
+    <h2>List of all FAQs</h2>
+  </div>
+
+  <div class="toggle">
+    <button class="contrast" id="toggle" onclick="toggleDetails()">Collapse All</button>
+  </div>
+</div>
+
+<% @database.each do |topic, entries| %>
+  <details class="topic" open>
+    <summary role="button" class="secondary"><%= topic %></summary>
+    
+    <% entries.each do |entry| %>
+      <details class="entry">
+        <summary><%== entry[:question] %></summary>
+        <p><%== entry[:answer] %></p>
+      </details>
+    <% end %>
+  </details>
+<% end %>
+
+<script>
+  function toggleDetails() {
+    if (document.getElementById("toggle").innerHTML == "Collapse All") {
+      document.getElementById("toggle").innerHTML = "Expand All";
+      document.body.querySelectorAll(".topic, .entry").forEach((e) => e.removeAttribute('open'));
+    } else {
+      document.getElementById("toggle").innerHTML = "Collapse All";
+      document.body.querySelectorAll(".topic").forEach((e) => e.setAttribute('open', true));
+      document.body.querySelectorAll(".entry").forEach((e) => e.removeAttribute('open'));
+    }
+  }
+</script>
